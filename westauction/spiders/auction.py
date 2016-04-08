@@ -19,8 +19,12 @@ class AuctionSpider(scrapy.Spider):
                    'http://www.northstateauctions.com',
     ]
 
+    # get the allowed domains from the start urls
     allowed_domains = map(lambda url: url.split('www.')[-1], _start_urls)
 
+    # these points contain the beef of the data.  
+    # alternatively, you can also scrape all the auctions, present, and future
+    # by modifying this line
     start_urls = [url+'/'+ARCHIVE_PATH for url in _start_urls[1:2]]
 
 
